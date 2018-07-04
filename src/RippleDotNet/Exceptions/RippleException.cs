@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RippleDotNet.Exceptions
+namespace Ripple.WebSocketClient.Exceptions
 {
     public class RippleException : Exception
     {

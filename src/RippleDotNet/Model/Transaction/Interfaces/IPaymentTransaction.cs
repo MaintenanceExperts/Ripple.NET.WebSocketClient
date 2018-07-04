@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RippleDotNet.Model.Transaction.Interfaces
+namespace Ripple.WebSocketClient.Model.Transaction.Interfaces
 {
     public interface IPaymentTransaction : ITransactionCommon
     {

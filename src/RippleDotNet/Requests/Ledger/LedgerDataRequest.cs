@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace RippleDotNet.Requests.Ledger
+namespace Ripple.WebSocketClient.Requests.Ledger
 {
     public class LedgerDataRequest : BaseLedgerRequest
     {

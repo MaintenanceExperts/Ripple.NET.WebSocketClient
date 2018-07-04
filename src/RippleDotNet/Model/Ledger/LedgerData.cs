@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using RippleDotNet.Model.Ledger.Objects;
+using Ripple.WebSocketClient.Model.Ledger.Objects;
 
-namespace RippleDotNet.Model.Ledger
+namespace Ripple.WebSocketClient.Model.Ledger
 {
     public class LedgerData
     {

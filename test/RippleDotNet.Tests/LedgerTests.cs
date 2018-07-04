@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ripple.Core.Types;
-using RippleDotNet.Model;
-using RippleDotNet.Requests.Ledger;
+using Ripple.WebSocketClient.Model;
+using Ripple.WebSocketClient.Requests.Ledger;
 
-namespace RippleDotNet.Tests
+namespace Ripple.WebSocketClient.Tests
 {
     [TestClass]
     public class LedgerTests

@@ -4,7 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace RippleDotNet.Json.Converters
+namespace Ripple.WebSocketClient.Json.Converters
 {
     public class StringOrArrayConverter : JsonConverter
     {

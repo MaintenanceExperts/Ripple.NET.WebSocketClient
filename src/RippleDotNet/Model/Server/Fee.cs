@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
+using Ripple.WebSocketClient.Json.Converters;
 
-namespace RippleDotNet.Model.Server
+namespace Ripple.WebSocketClient.Model.Server
 {
     public class Fee
     {

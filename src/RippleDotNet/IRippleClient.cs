@@ -4,27 +4,27 @@ using System.Dynamic;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using RippleDotNet.Exceptions;
-using RippleDotNet.Model.Account;
-using RippleDotNet.Model.Admin;
-using RippleDotNet.Model.Ledger;
-using RippleDotNet.Model.Server;
-using RippleDotNet.Model.Transaction.TransactionTypes;
-using RippleDotNet.Requests;
-using RippleDotNet.Requests.Account;
-using RippleDotNet.Requests.Admin;
-using RippleDotNet.Requests.Ledger;
-using RippleDotNet.Requests.Transaction;
-using RippleDotNet.Responses;
-using RippleDotNet.Responses.Transaction;
-using RippleDotNet.Responses.Transaction.Interfaces;
-using RippleDotNet.Responses.Transaction.TransactionTypes;
-using BookOffers = RippleDotNet.Model.Transaction.BookOffers;
-using ChannelAuthorize = RippleDotNet.Model.Transaction.ChannelAuthorize;
-using ChannelVerify = RippleDotNet.Model.Transaction.ChannelVerify;
-using Submit = RippleDotNet.Model.Transaction.Submit;
+using Ripple.WebSocketClient.Exceptions;
+using Ripple.WebSocketClient.Model.Account;
+using Ripple.WebSocketClient.Model.Admin;
+using Ripple.WebSocketClient.Model.Ledger;
+using Ripple.WebSocketClient.Model.Server;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Requests;
+using Ripple.WebSocketClient.Requests.Account;
+using Ripple.WebSocketClient.Requests.Admin;
+using Ripple.WebSocketClient.Requests.Ledger;
+using Ripple.WebSocketClient.Requests.Transaction;
+using Ripple.WebSocketClient.Responses;
+using Ripple.WebSocketClient.Responses.Transaction;
+using Ripple.WebSocketClient.Responses.Transaction.Interfaces;
+using Ripple.WebSocketClient.Responses.Transaction.TransactionTypes;
+using BookOffers = Ripple.WebSocketClient.Model.Transaction.BookOffers;
+using ChannelAuthorize = Ripple.WebSocketClient.Model.Transaction.ChannelAuthorize;
+using ChannelVerify = Ripple.WebSocketClient.Model.Transaction.ChannelVerify;
+using Submit = Ripple.WebSocketClient.Model.Transaction.Submit;
 
-namespace RippleDotNet
+namespace Ripple.WebSocketClient
 {
     public interface IRippleClient
     {

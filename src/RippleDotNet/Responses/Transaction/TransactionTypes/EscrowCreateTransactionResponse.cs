@@ -1,11 +1,11 @@
 ﻿using System;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model;
-using RippleDotNet.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model;
+using Ripple.WebSocketClient.Model.Transaction.Interfaces;
 
 
-namespace RippleDotNet.Responses.Transaction.TransactionTypes
+namespace Ripple.WebSocketClient.Responses.Transaction.TransactionTypes
 {
     public class EscrowCreateTransactionResponse : TransactionResponseCommon, IEscrowCreateTransaction
     {

@@ -1,7 +1,7 @@
 ﻿
-using RippleDotNet.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Model.Transaction.Interfaces;
 
-namespace RippleDotNet.Model.Transaction.TransactionTypes
+namespace Ripple.WebSocketClient.Model.Transaction.TransactionTypes
 {
     public class AccountSetTransaction : TransactionCommon, IAccountSetTransaction
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace RippleDotNet.Model.Transaction
+namespace Ripple.WebSocketClient.Model.Transaction
 {
     public class ChannelVerify
     {

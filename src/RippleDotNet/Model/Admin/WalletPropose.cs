@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RippleDotNet.Model.Admin
+namespace Ripple.WebSocketClient.Model.Admin
 {
     public class WalletPropose
     {

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model;
-using RippleDotNet.Model.Transaction.Interfaces;
-using RippleDotNet.Model.Transaction.TransactionTypes;
-using RippleDotNet.Responses.Transaction.Interfaces;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model;
+using Ripple.WebSocketClient.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Responses.Transaction.Interfaces;
 
-namespace RippleDotNet.Responses.Transaction.TransactionTypes
+namespace Ripple.WebSocketClient.Responses.Transaction.TransactionTypes
 {
     [JsonConverter(typeof(TransactionConverter))]
     public abstract class TransactionResponseCommon : BaseTransactionResponse, ITransactionCommon, ITransactionResponseCommon

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model;
-using RippleDotNet.Model.Ledger;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model;
+using Ripple.WebSocketClient.Model.Ledger;
 
-namespace RippleDotNet.Responses.Transaction
+namespace Ripple.WebSocketClient.Responses.Transaction
 {
     public class BookOffers
     {

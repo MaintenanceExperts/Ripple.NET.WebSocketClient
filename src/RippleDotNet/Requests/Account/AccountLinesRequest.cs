@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RippleDotNet.Requests.Account
+namespace Ripple.WebSocketClient.Requests.Account
 {
     public class AccountLinesRequest : BaseLedgerRequest
     {

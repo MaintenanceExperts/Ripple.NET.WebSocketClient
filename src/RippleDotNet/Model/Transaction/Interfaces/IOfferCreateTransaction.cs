@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RippleDotNet.Model.Transaction.Interfaces
+namespace Ripple.WebSocketClient.Model.Transaction.Interfaces
 {
     public interface IOfferCreateTransaction : ITransactionCommon
     {

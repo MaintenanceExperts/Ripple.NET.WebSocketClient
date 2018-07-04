@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace RippleDotNet.Model
+namespace Ripple.WebSocketClient.Model
 {
     public enum TransactionType
     {

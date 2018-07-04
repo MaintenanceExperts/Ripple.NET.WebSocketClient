@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>RippleDotNet</id>
+    <id>Ripple.WebSocketClient</id>
     <version>$version$</version>
     <title>$title$</title>
     <authors>Chris Williams</authors>
     <owners>CloudScope, LLC</owners>
-    <licenseUrl>https://github.com/chriswill/RippleDotNet/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/chriswill/RippleDotNet</projectUrl>    
+    <licenseUrl>https://github.com/chriswill/Ripple.WebSocketClient/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/chriswill/Ripple.WebSocketClient</projectUrl>    
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>First release.</releaseNotes>

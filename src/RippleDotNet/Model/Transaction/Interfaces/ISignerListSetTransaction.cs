@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using RippleDotNet.Model.Ledger.Objects;
+using Ripple.WebSocketClient.Model.Ledger.Objects;
 
-namespace RippleDotNet.Model.Transaction.Interfaces
+namespace Ripple.WebSocketClient.Model.Transaction.Interfaces
 {
     public interface ISignerListSetTransaction : ITransactionCommon
     {

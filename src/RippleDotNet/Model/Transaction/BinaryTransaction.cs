@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using RippleDotNet.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Model.Transaction
+namespace Ripple.WebSocketClient.Model.Transaction
 {
     public class BinaryTransaction
     {

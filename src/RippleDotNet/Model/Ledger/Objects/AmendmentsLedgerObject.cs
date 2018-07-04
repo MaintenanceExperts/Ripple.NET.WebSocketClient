@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
+using Ripple.WebSocketClient.Json.Converters;
 
-namespace RippleDotNet.Model.Ledger.Objects
+namespace Ripple.WebSocketClient.Model.Ledger.Objects
 {
     public class AmendmentsLedgerObject : BaseRippleLedgerObject
     {

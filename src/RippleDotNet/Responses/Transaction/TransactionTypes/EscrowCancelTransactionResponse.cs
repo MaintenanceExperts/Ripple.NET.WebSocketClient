@@ -1,7 +1,7 @@
-﻿using RippleDotNet.Model.Transaction.Interfaces;
-using RippleDotNet.Responses.Transaction.Interfaces;
+﻿using Ripple.WebSocketClient.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Responses.Transaction.Interfaces;
 
-namespace RippleDotNet.Responses.Transaction.TransactionTypes
+namespace Ripple.WebSocketClient.Responses.Transaction.TransactionTypes
 {
     public class EscrowCancelTransactionResponse : TransactionResponseCommon, IEscrowCancelTransaction
     {

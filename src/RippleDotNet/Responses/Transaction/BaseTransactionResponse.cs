@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Responses.Transaction.Interfaces;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Responses.Transaction.Interfaces;
 
-namespace RippleDotNet.Responses.Transaction
+namespace Ripple.WebSocketClient.Responses.Transaction
 {
     public class BaseTransactionResponse : IBaseTransactionResponse
     {

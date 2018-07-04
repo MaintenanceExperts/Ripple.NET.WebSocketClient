@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model.Transaction;
-using RippleDotNet.Model.Transaction.TransactionTypes;
-using RippleDotNet.Responses.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model.Transaction;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Responses.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Model.Account
+namespace Ripple.WebSocketClient.Model.Account
 {
     public class AccountTransactions
     {

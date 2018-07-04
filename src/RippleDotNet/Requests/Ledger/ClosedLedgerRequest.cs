@@ -1,4 +1,4 @@
-﻿namespace RippleDotNet.Requests.Ledger
+﻿namespace Ripple.WebSocketClient.Requests.Ledger
 {
     public class ClosedLedgerRequest : RippleRequest
     {

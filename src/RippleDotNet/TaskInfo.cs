@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RippleDotNet
+namespace Ripple.WebSocketClient
 {
     internal class TaskInfo
     {

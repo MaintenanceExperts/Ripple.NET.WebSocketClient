@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using RippleDotNet.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Json.Converters
+namespace Ripple.WebSocketClient.Json.Converters
 {
     public class MetaBinaryConverter : JsonConverter
     {

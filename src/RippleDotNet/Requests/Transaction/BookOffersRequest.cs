@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using RippleDotNet.Model;
+using Ripple.WebSocketClient.Model;
 
-namespace RippleDotNet.Requests.Transaction
+namespace Ripple.WebSocketClient.Requests.Transaction
 {
     public class BookOffersRequest : BaseLedgerRequest
     {

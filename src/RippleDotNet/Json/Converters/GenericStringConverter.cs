@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace RippleDotNet.Json.Converters
+namespace Ripple.WebSocketClient.Json.Converters
 {
     public class GenericStringConverter<T> : JsonConverter
     {

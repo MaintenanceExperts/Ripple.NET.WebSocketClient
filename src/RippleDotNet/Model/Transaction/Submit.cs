@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
-using RippleDotNet.Model.Transaction.TransactionTypes;
-using RippleDotNet.Responses.Transaction.Interfaces;
-using RippleDotNet.Responses.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Responses.Transaction.Interfaces;
+using Ripple.WebSocketClient.Responses.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Model.Transaction
+namespace Ripple.WebSocketClient.Model.Transaction
 {
     public class Submit
     {

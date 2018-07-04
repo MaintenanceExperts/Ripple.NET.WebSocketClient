@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using RippleDotNet.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Model.Transaction.Interfaces
+namespace Ripple.WebSocketClient.Model.Transaction.Interfaces
 {
     public interface ITransactionCommon
     {

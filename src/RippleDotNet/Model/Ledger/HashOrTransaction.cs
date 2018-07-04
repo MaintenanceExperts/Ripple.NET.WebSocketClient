@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Model.Ledger
+namespace Ripple.WebSocketClient.Model.Ledger
 {
     [JsonConverter(typeof(TransactionOrHashConverter))]
     public class HashOrTransaction

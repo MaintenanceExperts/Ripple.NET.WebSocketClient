@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace RippleDotNet.Model.Account
+namespace Ripple.WebSocketClient.Model.Account
 {
     public class AccountLines
     {

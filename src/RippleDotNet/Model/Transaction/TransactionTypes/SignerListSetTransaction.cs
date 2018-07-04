@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using RippleDotNet.Model.Ledger;
-using RippleDotNet.Model.Ledger.Objects;
-using RippleDotNet.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Model.Ledger;
+using Ripple.WebSocketClient.Model.Ledger.Objects;
+using Ripple.WebSocketClient.Model.Transaction.Interfaces;
 
-namespace RippleDotNet.Model.Transaction.TransactionTypes
+namespace Ripple.WebSocketClient.Model.Transaction.TransactionTypes
 {
     public class SignerListSetTransaction : TransactionCommon, ISignerListSetTransaction
     {

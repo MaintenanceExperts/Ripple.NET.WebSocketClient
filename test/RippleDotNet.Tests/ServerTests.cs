@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RippleDotNet.Model.Server;
-using RippleDotNet.Requests;
+using Ripple.WebSocketClient.Model.Server;
+using Ripple.WebSocketClient.Requests;
 
-namespace RippleDotNet.Tests
+namespace Ripple.WebSocketClient.Tests
 {
     [TestClass]
     public class ServerTests

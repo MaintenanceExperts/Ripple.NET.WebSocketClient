@@ -1,12 +1,12 @@
 ﻿using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using RippleDotNet.Responses.Transaction;
-using RippleDotNet.Responses.Transaction.Interfaces;
-using RippleDotNet.Responses.Transaction.TransactionTypes;
-using RippleDotNet.Tests.Properties;
+using Ripple.WebSocketClient.Responses.Transaction;
+using Ripple.WebSocketClient.Responses.Transaction.Interfaces;
+using Ripple.WebSocketClient.Responses.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Tests.Properties;
 
-namespace RippleDotNet.Tests
+namespace Ripple.WebSocketClient.Tests
 {
     [TestClass]
     public class DeserializationTests

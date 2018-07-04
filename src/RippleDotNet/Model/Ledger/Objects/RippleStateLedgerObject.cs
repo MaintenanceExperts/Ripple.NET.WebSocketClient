@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RippleDotNet.Model.Ledger.Objects
+namespace Ripple.WebSocketClient.Model.Ledger.Objects
 {
     public class RippleStateLedgerObject : BaseRippleLedgerObject
     {

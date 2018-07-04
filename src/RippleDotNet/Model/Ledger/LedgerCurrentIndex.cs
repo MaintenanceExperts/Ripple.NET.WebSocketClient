@@ -1,7 +1,7 @@
 ﻿
 using Newtonsoft.Json;
 
-namespace RippleDotNet.Model.Ledger
+namespace Ripple.WebSocketClient.Model.Ledger
 {
     public class LedgerCurrentIndex
     {

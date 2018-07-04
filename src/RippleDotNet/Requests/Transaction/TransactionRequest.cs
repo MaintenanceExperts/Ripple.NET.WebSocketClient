@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RippleDotNet.Requests.Transaction
+namespace Ripple.WebSocketClient.Requests.Transaction
 {
     internal class TransactionRequest : RippleRequest
     {

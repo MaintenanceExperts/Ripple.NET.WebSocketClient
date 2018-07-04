@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using RippleDotNet.Model.Transaction;
-using RippleDotNet.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Model.Transaction;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Model.Account
+namespace Ripple.WebSocketClient.Model.Account
 {
     public class NoRippleCheck
     {

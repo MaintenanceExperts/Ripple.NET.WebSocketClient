@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using RippleDotNet.Extensions;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Extensions;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model.Transaction.Interfaces;
 
-namespace RippleDotNet.Model.Transaction.TransactionTypes
+namespace Ripple.WebSocketClient.Model.Transaction.TransactionTypes
 {
     [JsonConverter(typeof(TransactionConverter))]
     public abstract class TransactionCommon : ITransactionCommon

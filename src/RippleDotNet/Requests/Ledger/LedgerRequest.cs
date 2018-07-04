@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RippleDotNet.Requests.Ledger
+namespace Ripple.WebSocketClient.Requests.Ledger
 {
     public class LedgerRequest : BaseLedgerRequest
     {

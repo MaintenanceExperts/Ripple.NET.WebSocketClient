@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>RippleDotNet.Tests</AssemblyName>
+    <AssemblyName>Ripple.WebSocketClient.Tests</AssemblyName>
 
-    <RootNamespace>RippleDotNet.Tests</RootNamespace>
+    <RootNamespace>Ripple.WebSocketClient.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\RippleDotNet\RippleDotNet.csproj" />
+    <ProjectReference Include="..\..\src\RippleDotNet\Ripple.WebSocketClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>

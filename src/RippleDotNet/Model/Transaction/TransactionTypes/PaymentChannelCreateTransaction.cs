@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model.Transaction.Interfaces;
 
-namespace RippleDotNet.Model.Transaction.TransactionTypes
+namespace Ripple.WebSocketClient.Model.Transaction.TransactionTypes
 {
     public class PaymentChannelCreateTransaction : TransactionCommon, IPaymentChannelCreateTransaction
     {

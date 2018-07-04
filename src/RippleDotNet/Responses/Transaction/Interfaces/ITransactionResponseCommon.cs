@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using RippleDotNet.Model;
-using RippleDotNet.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Model;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Responses.Transaction.Interfaces
+namespace Ripple.WebSocketClient.Responses.Transaction.Interfaces
 {
     public interface ITransactionResponseCommon : IBaseTransactionResponse
     {

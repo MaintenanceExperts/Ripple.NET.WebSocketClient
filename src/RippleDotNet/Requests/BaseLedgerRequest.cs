@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model;
 
-namespace RippleDotNet.Requests
+namespace Ripple.WebSocketClient.Requests
 {
     public class BaseLedgerRequest : RippleRequest
     {

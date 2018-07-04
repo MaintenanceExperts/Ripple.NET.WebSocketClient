@@ -4,12 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Ripple.Core.Types;
-using RippleDotNet.Model;
-using RippleDotNet.Model.Account;
-using RippleDotNet.Requests.Account;
+using Ripple.WebSocketClient.Model;
+using Ripple.WebSocketClient.Model.Account;
+using Ripple.WebSocketClient.Requests.Account;
 
 
-namespace RippleDotNet.Tests
+namespace Ripple.WebSocketClient.Tests
 {
     [TestClass]
     public class AccountTests

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RippleDotNet.Responses.Transaction.Interfaces
+namespace Ripple.WebSocketClient.Responses.Transaction.Interfaces
 {
     public interface IBaseTransactionResponse
     {

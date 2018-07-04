@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model.Transaction;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model.Transaction;
 
 
-namespace RippleDotNet.Model.Ledger
+namespace Ripple.WebSocketClient.Model.Ledger
 {
     public class Ledger : BaseLedgerInfo
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace RippleDotNet.Responses
+namespace Ripple.WebSocketClient.Responses
 {
     public class RippleResponse
     {

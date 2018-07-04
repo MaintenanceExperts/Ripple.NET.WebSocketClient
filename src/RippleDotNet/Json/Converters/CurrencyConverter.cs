@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RippleDotNet.Model;
+using Ripple.WebSocketClient.Model;
 
-namespace RippleDotNet.Json.Converters
+namespace Ripple.WebSocketClient.Json.Converters
 {
     public class CurrencyConverter : JsonConverter
     {

@@ -1,9 +1,9 @@
 ﻿using System.Dynamic;
 using System.Globalization;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
+using Ripple.WebSocketClient.Json.Converters;
 
-namespace RippleDotNet.Model
+namespace Ripple.WebSocketClient.Model
 {
     public class Currency
     {

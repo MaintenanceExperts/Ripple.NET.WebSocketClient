@@ -6,19 +6,19 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Ripple.Core.Types;
 using Ripple.TxSigning;
-using RippleDotNet.Extensions;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model;
-using RippleDotNet.Model.Account;
-using RippleDotNet.Model.Transaction;
-using RippleDotNet.Model.Transaction.Interfaces;
-using RippleDotNet.Model.Transaction.TransactionTypes;
-using RippleDotNet.Requests.Ledger;
-using RippleDotNet.Requests.Transaction;
-using RippleDotNet.Responses.Transaction.Interfaces;
-using Currency = RippleDotNet.Model.Currency;
+using Ripple.WebSocketClient.Extensions;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model;
+using Ripple.WebSocketClient.Model.Account;
+using Ripple.WebSocketClient.Model.Transaction;
+using Ripple.WebSocketClient.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Requests.Ledger;
+using Ripple.WebSocketClient.Requests.Transaction;
+using Ripple.WebSocketClient.Responses.Transaction.Interfaces;
+using Currency = Ripple.WebSocketClient.Model.Currency;
 
-namespace RippleDotNet.Tests
+namespace Ripple.WebSocketClient.Tests
 {
     [TestClass]
     public class TransactionTests

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace RippleDotNet.Model.Ledger
+namespace Ripple.WebSocketClient.Model.Ledger
 {
     public class BaseLedgerInfo
     {

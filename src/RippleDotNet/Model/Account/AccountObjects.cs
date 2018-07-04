@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using RippleDotNet.Json.Converters;
-using RippleDotNet.Model.Ledger;
-using RippleDotNet.Model.Ledger.Objects;
+using Ripple.WebSocketClient.Json.Converters;
+using Ripple.WebSocketClient.Model.Ledger;
+using Ripple.WebSocketClient.Model.Ledger.Objects;
 
-namespace RippleDotNet.Model.Account
+namespace Ripple.WebSocketClient.Model.Account
 {
     public class AccountObjects
     {

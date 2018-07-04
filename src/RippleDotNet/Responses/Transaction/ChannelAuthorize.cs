@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RippleDotNet.Responses.Transaction
+namespace Ripple.WebSocketClient.Responses.Transaction
 {
     public class ChannelAuthorize
     {

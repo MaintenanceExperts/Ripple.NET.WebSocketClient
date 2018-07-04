@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace RippleDotNet.Model.Account
+namespace Ripple.WebSocketClient.Model.Account
 {
     public class AccountCurrencies
     {

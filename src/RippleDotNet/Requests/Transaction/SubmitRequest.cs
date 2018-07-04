@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using RippleDotNet.Model.Transaction.Interfaces;
-using RippleDotNet.Model.Transaction.TransactionTypes;
+using Ripple.WebSocketClient.Model.Transaction.Interfaces;
+using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
 
-namespace RippleDotNet.Requests.Transaction
+namespace Ripple.WebSocketClient.Requests.Transaction
 {
     /// <summary>
     /// Per Ripple, this mode is intended to be used for testing.

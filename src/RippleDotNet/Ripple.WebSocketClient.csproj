@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>RippleDotNet</AssemblyName>
-    <RootNamespace>RippleDotNet</RootNamespace>
+    <AssemblyName>Ripple.WebSocketClient</AssemblyName>
+    <RootNamespace>Ripple.WebSocketClient</RootNamespace>
     <Authors>Chris Williams</Authors>
     <Company>CloudScope, LLC</Company>
     <Description>RippleDotNet is a C# NetStandard 2.0 client implementation for the Ripple WebSocket APIs.</Description>

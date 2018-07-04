@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RippleDotNet.Model.Ledger;
+using Ripple.WebSocketClient.Model.Ledger;
 
-namespace RippleDotNet.Json.Converters
+namespace Ripple.WebSocketClient.Json.Converters
 {
     public class LedgerBinaryConverter : JsonConverter
     {

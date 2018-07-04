@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using RippleDotNet.Model.Ledger;
-using RippleDotNet.Model.Ledger.Objects;
+using Ripple.WebSocketClient.Model.Ledger;
+using Ripple.WebSocketClient.Model.Ledger.Objects;
 
-namespace RippleDotNet.Model.Account
+namespace Ripple.WebSocketClient.Model.Account
 {
     public class AccountInfo
     {

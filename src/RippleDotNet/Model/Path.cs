@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RippleDotNet.Model
+namespace Ripple.WebSocketClient.Model
 {
     public class Path
     {

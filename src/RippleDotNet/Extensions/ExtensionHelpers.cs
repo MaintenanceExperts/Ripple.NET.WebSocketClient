@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace RippleDotNet.Extensions
+namespace Ripple.WebSocketClient.Extensions
 {
     public static class ExtensionHelpers
     {
