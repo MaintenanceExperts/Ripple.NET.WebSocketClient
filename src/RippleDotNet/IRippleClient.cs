@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RippleDotNet.Exceptions;
 using RippleDotNet.Model.Account;
+using RippleDotNet.Model.Admin;
 using RippleDotNet.Model.Ledger;
 using RippleDotNet.Model.Server;
 using RippleDotNet.Model.Transaction.TransactionTypes;
 using RippleDotNet.Requests;
 using RippleDotNet.Requests.Account;
+using RippleDotNet.Requests.Admin;
 using RippleDotNet.Requests.Ledger;
 using RippleDotNet.Requests.Transaction;
 using RippleDotNet.Responses;
@@ -113,6 +115,8 @@ namespace RippleDotNet
         Task<LedgerCurrentIndex> CurrentLedger();
 
         Task<LedgerData> LedgerData(LedgerDataRequest request);
+
+        Task<WalletPropose> WalletPropose(WalletProposeRequest request);
     }
 
     public class RippleClient : IRippleClient
@@ -127,10 +131,10 @@ namespace RippleDotNet
             serializerSettings = new JsonSerializerSettings();
             serializerSettings.NullValueHandling = NullValueHandling.Ignore;
             serializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
-            
+
             client = WebSocketClient.Create(url);
             client.OnMessageReceived(MessageReceived);
-            client.OnConnectionError(Error);            
+            client.OnConnectionError(Error);
         }
 
         public void Connect()
@@ -159,9 +163,9 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(object);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
-            
+
             client.SendMessage(command);
             return task.Task;
         }
@@ -181,7 +185,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(AccountCurrencies);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -203,7 +207,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(AccountChannels);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -225,7 +229,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(AccountInfo);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -247,7 +251,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(AccountLines);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -269,7 +273,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(AccountOffers);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -291,7 +295,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(AccountObjects);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -313,7 +317,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(AccountTransactions);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -335,7 +339,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(NoRippleCheck);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -357,7 +361,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(GatewayBalances);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -412,7 +416,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(ServerInfo);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -431,7 +435,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(Fee);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -447,7 +451,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(ChannelAuthorize);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -463,7 +467,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(ChannelVerify);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -479,7 +483,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(Submit);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -495,7 +499,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(Submit);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -511,7 +515,7 @@ namespace RippleDotNet
             taskInfo.TaskId = request.Id;
             taskInfo.TaskCompletionResult = task;
             taskInfo.Type = typeof(BookOffers);
-            
+
             tasks.TryAdd(request.Id, taskInfo);
 
             client.SendMessage(command);
@@ -585,9 +589,25 @@ namespace RippleDotNet
             return task.Task;
         }
 
+        public Task<WalletPropose> WalletPropose(WalletProposeRequest request)
+        {
+            var command = JsonConvert.SerializeObject(request, serializerSettings);
+            TaskCompletionSource<WalletPropose> task = new TaskCompletionSource<WalletPropose>();
+
+            TaskInfo taskInfo = new TaskInfo();
+            taskInfo.TaskId = request.Id;
+            taskInfo.TaskCompletionResult = task;
+            taskInfo.Type = typeof(WalletPropose);
+
+            tasks.TryAdd(request.Id, taskInfo);
+
+            client.SendMessage(command);
+            return task.Task;
+        }
+
         private void Error(Exception ex, WebSocketClient client)
         {
-            throw new Exception(ex.Message, ex);            
+            throw new Exception(ex.Message, ex);
         }
 
         private void MessageReceived(string s, WebSocketClient client)
@@ -611,13 +631,13 @@ namespace RippleDotNet
             }
             else if (response.Status == "error")
             {
-                var setException = taskInfo.TaskCompletionResult.GetType().GetMethod("SetException", new Type[]{typeof(Exception)}, null);
+                var setException = taskInfo.TaskCompletionResult.GetType().GetMethod("SetException", new Type[] { typeof(Exception) }, null);
 
                 RippleException exception = new RippleException(response.Error);
                 setException.Invoke(taskInfo.TaskCompletionResult, new[] { exception });
 
                 tasks.TryRemove(response.Id, out taskInfo);
-            }                        
-        }        
+            }
+        }
     }
 }
