@@ -15,7 +15,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="Ripple.NetCore" Version="1.1.0" />
+    <PackageReference Include="Ripple.Core" Version="0.0.2" />
   </ItemGroup>
 
   <ItemGroup>

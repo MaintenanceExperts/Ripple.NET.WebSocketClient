@@ -122,17 +122,17 @@ namespace Ripple.WebSocketClient.Tests
             IRippleClient rippleClient = new RippleClient("wss://s.altnet.rippletest.net:51233");
             rippleClient.Connect();
 
-            AccountInfo accountInfo = await rippleClient.AccountInfo("rEqtEHKbinqm18wQSQGstmqg9SFpUELasT");
+            AccountInfo accountInfo = await rippleClient.AccountInfo("r9oxZ7NZW9ecSG8Fig2NGdLcWv9vFy8twE");
 
             IPaymentTransaction paymentTransaction = new PaymentTransaction();
-            paymentTransaction.Account = "rEqtEHKbinqm18wQSQGstmqg9SFpUELasT";
-            paymentTransaction.Destination = "rwEHFU98CjH59UX2VqAgeCzRFU9KVvV71V";
+            paymentTransaction.Account = "r9oxZ7NZW9ecSG8Fig2NGdLcWv9vFy8twE";
+            paymentTransaction.Destination = "rawNcFm6U1ecQjMLQveKyYGi2zgRutKeHS";
             paymentTransaction.Amount = new Currency { ValueAsXrp = 20};
             paymentTransaction.Sequence = accountInfo.AccountData.Sequence;
             paymentTransaction.Fee = new Currency{Value = "15"};
 
             var json = paymentTransaction.ToJson();
-            TxSigner signer = TxSigner.FromSecret("xxxxxxx");
+            TxSigner signer = TxSigner.FromSecret("spzUVPgz5NmARYf3Sgk7bkYQ975BG");
             SignedTx signedTx = signer.SignJson(JObject.Parse(json));
 
             SubmitBlobRequest request = new SubmitBlobRequest();

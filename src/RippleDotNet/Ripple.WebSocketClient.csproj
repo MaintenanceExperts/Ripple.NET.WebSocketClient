@@ -1,26 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Ripple.WebSocketClient</AssemblyName>
     <RootNamespace>Ripple.WebSocketClient</RootNamespace>
-    <Authors>Chris Williams</Authors>
-    <Company>CloudScope, LLC</Company>
-    <Description>RippleDotNet is a C# NetStandard 2.0 client implementation for the Ripple WebSocket APIs.</Description>
+    <Authors>Maitland Marshall</Authors>
+    <Company>Maintenance Experts</Company>
+    <Description>Ripple.WebSocketClient is a C# NetStandard 2.0 client implementation for the Ripple WebSocket APIs.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <RepositoryUrl>https://github.com/chriswill/RippleDotNet</RepositoryUrl>
-    <Copyright>Copyright 2017, CloudScope, LLC</Copyright>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>https://github.com/chriswill/RippleDotNet/blob/master/LICENSE</PackageLicenseUrl>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <RepositoryUrl>https://github.com/MaintenanceExperts/Ripple.WebSocketClient</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/MaintenanceExperts/Ripple.WebSocketClient/blob/master/LICENSE</PackageLicenseUrl>
+    
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    
+    <Version>0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="Ripple.NetCore" Version="1.1.0" />
+    <PackageReference Include="Ripple.Core" Version="0.0.2" />
   </ItemGroup>
 
   <ItemGroup>
