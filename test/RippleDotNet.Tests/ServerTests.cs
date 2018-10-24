@@ -23,7 +23,7 @@ namespace Ripple.WebSocketClient.Tests
         public static void MyClassInitialize(TestContext testContext)
         {
             client = new RippleClient(serverUrl);
-            client.Connect();
+            client.Connect().Wait();
         }
 
         [TestMethod]

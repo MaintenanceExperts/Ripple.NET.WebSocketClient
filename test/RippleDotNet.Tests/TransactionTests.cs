@@ -39,7 +39,7 @@ namespace Ripple.WebSocketClient.Tests
         public static void MyClassInitialize(TestContext testContext)
         {
             client = new RippleClient(serverUrl);
-            client.Connect();
+            client.Connect().Wait();
 
             serializerSettings = new JsonSerializerSettings();
             serializerSettings.NullValueHandling = NullValueHandling.Ignore;
@@ -68,7 +68,7 @@ namespace Ripple.WebSocketClient.Tests
         public async Task CanGetTransactions()
         {
             RippleClient rippleClient = new RippleClient("wss://s1.ripple.com:443");
-            rippleClient.Connect();
+            await rippleClient.Connect();
             var transactions = await rippleClient.AccountTransactions("rPGKpTsgSaQiwLpEekVj1t5sgYJiqf2HDC");
             Console.WriteLine(transactions.Transactions.Count);
         }
@@ -120,7 +120,7 @@ namespace Ripple.WebSocketClient.Tests
         public async Task CanSubmitPaymentTransaction()
         {
             IRippleClient rippleClient = new RippleClient("wss://s.altnet.rippletest.net:51233");
-            rippleClient.Connect();
+            await rippleClient.Connect();
 
             AccountInfo accountInfo = await rippleClient.AccountInfo("r9oxZ7NZW9ecSG8Fig2NGdLcWv9vFy8twE");
 
@@ -171,7 +171,7 @@ namespace Ripple.WebSocketClient.Tests
         public async Task CanGetBookOffers()
         {
             IRippleClient rippleClient = new RippleClient("wss://s1.ripple.com:443");
-            rippleClient.Connect();
+            await rippleClient.Connect();
             BookOffersRequest request = new BookOffersRequest();
 
             request.TakerGets = new Currency { CurrencyCode = "EUR", Issuer = "rhub8VRN55s94qWKDv6jmDy1pUykJzF3wq" };
@@ -315,7 +315,7 @@ namespace Ripple.WebSocketClient.Tests
         public async Task CanCreateEscrow()
         {
             IRippleClient rippleClient = new RippleClient("wss://s.altnet.rippletest.net:51233");
-            rippleClient.Connect();
+            await rippleClient.Connect();
 
             AccountInfo accountInfo = await rippleClient.AccountInfo("rwEHFU98CjH59UX2VqAgeCzRFU9KVvV71V");
 
@@ -344,7 +344,7 @@ namespace Ripple.WebSocketClient.Tests
         public async Task CanFinishEscrow()
         {
             IRippleClient rippleClient = new RippleClient("wss://s.altnet.rippletest.net:51233");
-            rippleClient.Connect();
+            await rippleClient.Connect();
 
             AccountInfo accountInfo = await rippleClient.AccountInfo("rwEHFU98CjH59UX2VqAgeCzRFU9KVvV71V");
 

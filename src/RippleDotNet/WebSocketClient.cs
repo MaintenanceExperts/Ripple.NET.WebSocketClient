@@ -45,7 +45,7 @@ namespace Ripple.WebSocketClient
         /// Connects to the WebSocket server.
         /// </summary>
         /// <returns>Self</returns>
-        internal WebSocketClient Connect()
+        internal async Task Connect()
         {
             if (_ws == null)
             {
@@ -53,8 +53,7 @@ namespace Ripple.WebSocketClient
                 _ws.Options.KeepAliveInterval = TimeSpan.FromSeconds(20);
             }
 
-            ConnectAsync();
-            return this;
+            await ConnectAsync();
         }
 
         /// <summary>
@@ -178,8 +177,11 @@ namespace Ripple.WebSocketClient
             }
         }
 
-        private async void ConnectAsync()
+        private async Task ConnectAsync()
         {
+            if (this._ws.State == WebSocketState.Open)
+                return;
+
             try
             {
                 await _ws.ConnectAsync(_uri, _cancellationToken);

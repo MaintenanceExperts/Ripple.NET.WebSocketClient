@@ -1,19 +1,25 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Dynamic;
 using System.Net.WebSockets;
+using System.Reflection;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Ripple.WebSocketClient.Exceptions;
 using Ripple.WebSocketClient.Model.Account;
 using Ripple.WebSocketClient.Model.Admin;
 using Ripple.WebSocketClient.Model.Ledger;
 using Ripple.WebSocketClient.Model.Server;
+using Ripple.WebSocketClient.Model.Subscription;
 using Ripple.WebSocketClient.Model.Transaction.TransactionTypes;
 using Ripple.WebSocketClient.Requests;
 using Ripple.WebSocketClient.Requests.Account;
 using Ripple.WebSocketClient.Requests.Admin;
 using Ripple.WebSocketClient.Requests.Ledger;
+using Ripple.WebSocketClient.Requests.Subscription;
 using Ripple.WebSocketClient.Requests.Transaction;
 using Ripple.WebSocketClient.Responses;
 using Ripple.WebSocketClient.Responses.Transaction;
@@ -28,11 +34,14 @@ namespace Ripple.WebSocketClient
 {
     public interface IRippleClient
     {
-        void Connect();
+        Task Connect();
 
         void Disconnect();
 
         Task Ping();
+
+        Task<SubscriptionStream> Subscribe(SubscriptionRequest request);
+        Task Unsubscribe();
 
         Task<AccountCurrencies> AccountCurrencies(string account);
 
@@ -125,6 +134,8 @@ namespace Ripple.WebSocketClient
         private readonly ConcurrentDictionary<Guid, TaskInfo> tasks;
         private readonly JsonSerializerSettings serializerSettings;
 
+        private SubscriptionStream subscriptionStream;
+
         public RippleClient(string url)
         {
             tasks = new ConcurrentDictionary<Guid, TaskInfo>();
@@ -137,14 +148,7 @@ namespace Ripple.WebSocketClient
             client.OnConnectionError(Error);
         }
 
-        public void Connect()
-        {
-            client.Connect();
-            do
-            {
-                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-            } while (client.State != WebSocketState.Open);
-        }
+        public async Task Connect() => await client.Connect();
 
         public void Disconnect()
         {
@@ -166,7 +170,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -188,7 +192,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -210,7 +214,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -232,7 +236,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -254,7 +258,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -276,7 +280,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -298,7 +302,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -320,7 +324,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -342,7 +346,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -364,7 +368,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -381,7 +385,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -399,7 +403,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
 
         }
@@ -419,7 +423,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -438,7 +442,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -454,7 +458,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -470,7 +474,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -486,7 +490,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -502,7 +506,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -518,7 +522,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -534,7 +538,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -551,7 +555,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
 
         }
@@ -569,7 +573,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -585,7 +589,7 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
-            client.SendMessage(command);
+            this.SendMessage(command);
             return task.Task;
         }
 
@@ -601,8 +605,57 @@ namespace Ripple.WebSocketClient
 
             tasks.TryAdd(request.Id, taskInfo);
 
+            this.SendMessage(command);
+            return task.Task;
+        }
+
+        public Task<SubscriptionStream> Subscribe(SubscriptionRequest request)
+        {
+            if (this.subscriptionStream != null)
+                throw new Exception("One subscription at a time");
+
+            string command = JsonConvert.SerializeObject(request, serializerSettings);
+            TaskCompletionSource<SubscriptionStream> task = new TaskCompletionSource<SubscriptionStream>();
+
+            TaskInfo taskInfo = new TaskInfo();
+            taskInfo.TaskId = request.Id;
+            taskInfo.TaskCompletionResult = task;
+            taskInfo.Type = typeof(SubscriptionStream);
+
+            tasks.TryAdd(request.Id, taskInfo);
+
+            task.SetResult(new SubscriptionStream(request));
+
+            this.SendMessage(command);
+            return task.Task;
+        }
+
+        public Task Unsubscribe()
+        {
+            if (this.subscriptionStream == null)
+                throw new Exception("No subscription");
+
+            SubscriptionRequest request = this.subscriptionStream.Request;
+            request.Command = "unsubscribe";
+
+            string command = JsonConvert.SerializeObject(request, serializerSettings);
+            TaskCompletionSource<object> task = new TaskCompletionSource<object>();
+
+            TaskInfo taskInfo = new TaskInfo();
+            taskInfo.TaskId = request.Id;
+            taskInfo.TaskCompletionResult = task;
+            taskInfo.Type = typeof(object);
+            taskInfo.IsUnsubscribe = true;
+
+            tasks.TryAdd(request.Id, taskInfo);
+
             client.SendMessage(command);
             return task.Task;
+        }
+
+        private void SendMessage(string command)
+        {
+            client.SendMessage(command);
         }
 
         private void Error(Exception ex, WebSocketClient client)
@@ -612,17 +665,48 @@ namespace Ripple.WebSocketClient
 
         private void MessageReceived(string s, WebSocketClient client)
         {
-            RippleResponse response = JsonConvert.DeserializeObject<RippleResponse>(s);
+            JObject jResponse = JObject.Parse(s);
+
+            // if the response does not have an id field, it is not a RippleResponse.
+            // it is most likely a stream from the subscribe API
+            if (jResponse["id"] == null)
+            {
+                // if there is no active subscriptionStream
+                // disregard the message
+                if (this.subscriptionStream == null)
+                    return;
+
+                this.subscriptionStream.Push(jResponse.ToObject<Dictionary<string, object>>());
+                return;   
+            }
+
+            RippleResponse response = jResponse.ToObject<RippleResponse>();
 
             var taskInfoResult = tasks.TryGetValue(response.Id, out var taskInfo);
-            if (taskInfoResult == false) throw new Exception("Task not found");
+            if (taskInfoResult == false)
+                throw new Exception("Task not found");
 
             if (response.Status == "success")
             {
-                var deserialized = JsonConvert.DeserializeObject(response.Result.ToString(), taskInfo.Type, serializerSettings);
+                if (taskInfo.Type != typeof(SubscriptionStream))
+                {
+                    if (taskInfo.IsUnsubscribe)
+                    {
+                        this.subscriptionStream = null;
+                    }
 
-                var setResult = taskInfo.TaskCompletionResult.GetType().GetMethod("SetResult");
-                setResult.Invoke(taskInfo.TaskCompletionResult, new[] { deserialized });
+                    object deserialized = JsonConvert.DeserializeObject(response.Result.ToString(), taskInfo.Type, serializerSettings);
+
+                    MethodInfo setResult = taskInfo.TaskCompletionResult.GetType().GetMethod("SetResult");
+                    setResult.Invoke(taskInfo.TaskCompletionResult, new[] { deserialized });
+                } else
+                {
+                    TaskCompletionSource<SubscriptionStream> taskCompletionSource = taskInfo.TaskCompletionResult as TaskCompletionSource<SubscriptionStream>;
+                    this.subscriptionStream = taskCompletionSource.Task.Result;
+
+                    // since subscriptionStream is not null, MessageReceived will push the first subscription to the SubscriptionStream
+                    this.MessageReceived(response.Result.ToString(), client);
+                }
 
                 if (taskInfo.RemoveUponCompletion)
                 {
@@ -639,5 +723,7 @@ namespace Ripple.WebSocketClient
                 tasks.TryRemove(response.Id, out taskInfo);
             }
         }
+
+       
     }
 }

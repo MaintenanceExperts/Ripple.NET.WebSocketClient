@@ -8,9 +8,11 @@ namespace Ripple.WebSocketClient
 
         public Type Type { get; set; }
 
-        public dynamic TaskCompletionResult { get; set; }
+        public object TaskCompletionResult { get; set; }
 
         public bool RemoveUponCompletion { get; set; }
+
+        public bool IsUnsubscribe { get; set; }
 
         public TaskInfo()
         {

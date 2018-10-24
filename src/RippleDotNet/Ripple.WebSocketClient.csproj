@@ -13,7 +13,7 @@
     
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,8 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\Subscriptions\" />
-    <Folder Include="Requests\Subscription\" />
     <Folder Include="Requests\Server\" />
   </ItemGroup>
 
