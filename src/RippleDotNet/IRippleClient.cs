@@ -671,6 +671,9 @@ namespace Ripple.WebSocketClient
             // it is most likely a stream from the subscribe API
             if (jResponse["id"] == null)
             {
+                if (!jResponse.HasValues)
+                    return;
+
                 // if there is no active subscriptionStream
                 // disregard the message
                 if (this.subscriptionStream == null)
