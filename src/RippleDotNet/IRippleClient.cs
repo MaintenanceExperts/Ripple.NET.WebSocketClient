@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Net.WebSockets;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -663,6 +664,40 @@ namespace Ripple.WebSocketClient
             throw new Exception(ex.Message, ex);
         }
 
+        private Dictionary<string, object> ConvertJObjectToDictionary(JObject obj)
+        {
+            Dictionary<string, object> result = obj.ToObject<Dictionary<string, object>>();
+
+            string[] keys = result.Keys.ToArray();
+            for (int i = 0; i < keys.Length; i++)
+            {
+                string key = keys[i];
+
+                JToken jVal = result[key] as JToken;
+
+                if (jVal == null)
+                    continue;
+
+                if (jVal is JArray)
+                {
+                    List<JObject> list = (jVal as JArray).ToObject<List<JObject>>();
+                    List<Dictionary<string, object>> newList = new List<Dictionary<string, object>>();
+
+                    for (int x = 0; x < list.Count; x++)
+                    {
+                        newList.Add(this.ConvertJObjectToDictionary(list[x]));
+                    }
+
+                    result[key] = newList;
+                } else if (jVal is JObject)
+                {
+                    result[key] = this.ConvertJObjectToDictionary(jVal as JObject);
+                }
+            }
+
+            return result;
+        }
+
         private void MessageReceived(string s, WebSocketClient client)
         {
             JObject jResponse = JObject.Parse(s);
@@ -679,7 +714,8 @@ namespace Ripple.WebSocketClient
                 if (this.subscriptionStream == null)
                     return;
 
-                this.subscriptionStream.Push(jResponse.ToObject<Dictionary<string, object>>());
+                this.subscriptionStream.Push(this.ConvertJObjectToDictionary(jResponse));
+
                 return;   
             }
 

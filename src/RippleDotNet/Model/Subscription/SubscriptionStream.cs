@@ -22,9 +22,19 @@ namespace Ripple.WebSocketClient.Model.Subscription
             this.Feed.Add(o);
         }
 
-        public Task<IDictionary<string, object>> Next()
+        public Task<IDictionary<string, object>> Next(int? timeoutInMiliseconds = null)
         {
-            return Task.Run(() => this.Feed.Take());
+            return Task.Run(() =>
+            {
+                IDictionary<string, object> result;
+
+                if (this.Feed.TryTake(out result, timeoutInMiliseconds ?? -1))
+                {
+                    return result;
+                }
+
+                return null;
+            });
         }
     }
 }
